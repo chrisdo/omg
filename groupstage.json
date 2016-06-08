@@ -1,0 +1,293 @@
+{
+    "groupStage":
+    [
+	{
+	    "id": 1,
+	    "date": "10/06 21",
+	    "group": "A",
+	    "site": "Saint-Denis",
+	    "home": "Frankreich",
+	    "away": "Rumänien"
+	},
+	{
+	    	    "id": 2,
+	    "date": "11/06 15",
+	    "group": "A",
+	    "site": "Lens",
+	    "home": "Albanien",
+	    "away": "Schweiz"
+	},
+	{
+	    	    "id": 3,
+	    "date": "11/06 18",
+	    "group": "B",
+	    "site": "Bordeaux",
+	    "home": "Wales",
+	    "away": "Slowakei"
+	},
+	{
+	    	    "id": 4,
+	    "date": "11/06 21",
+	    "group": "B",
+	    "site": "Marseille",
+	    "home": "England",
+	    "away": "Russland"
+	},
+	{
+	    	    	    "id": 5,
+	    "date": "12/06 15",
+	    "group": "D",
+	    "site": "Paris",
+	    "home": "Türkei",
+	    "away": "Kroatien"
+	},
+	{
+	    	    	    "id": 6,
+	    "date": "12/06 18",
+	    "group": "C",
+	    "site": "Nizza",
+	    "home": "Polen",
+	    "away": "Nordirland"
+	},
+	{
+	    	    	    "id": 7,
+	    "date": "12/06 21",
+	    "group": "C",
+	    "site": "Lille",
+	    "home": "Deutschland",
+	    "away": "Ukraine"
+	},
+	{
+	    	    	    "id": 8,
+	    "date": "13/06 15",
+	    "group": "D",
+	    "site": "Toulouse",
+	    "home": "Spanien",
+	    "away": "Tschechien"
+	},
+	{
+	    	    	    "id": 9,
+	    "date": "13/06 18",
+	    "group": "E",
+	    "site": "Saint-Denis",
+	    "home": "Irland",
+	    "away": "Schweden"
+	},
+	{
+	    	    	    "id": 10,
+	    "date": "13/06 21",
+	    "group": "E",
+	    "site": "Lyon",
+	    "home": "Belgien",
+	    "away": "Italien"
+	},
+	{
+	    	    	    "id": 11,
+	    "date": "14/06 18",
+	    "group": "F",
+	    "site": "Bordeaux",
+	    "home": "Österreich",
+	    "away": "Ungarn"
+	},
+	{
+	    	    	    "id": 12,
+	    "date": "14/06 21",
+	    "group": "F",
+	    "site": "Saint-Etienne",
+	    "home": "Portugal",
+	    "away": "Island"
+	},
+	{
+	    	    	    "id": 13,
+	    "date": "15/06 15",
+	    "group": "B",
+	    "site": "Lille",
+	    "home": "Russland",
+	    "away": "Slowakei"
+	},
+	{
+	    	    	    "id": 14,
+	    "date": "15/06 18",
+	    "group": "A",
+	    "site": "Paris",
+	    "home": "Rumänien",
+	    "away": "Schweiz"
+	},
+	{
+	    	    	    "id": 15,
+	    "date": "15/06 21",
+	    "group": "A",
+	    "site": "Marseille",
+	    "home": "Frankreich",
+	    "away": "Albanien"
+	},
+	{
+	    	    	    "id": 16,
+	    "date": "16/06 15",
+	    "group": "B",
+	    "site": "Lens",
+	    "home": "England",
+	    "away": "Wales"
+	},
+	{
+	    	    	    "id": 17,
+	    "date": "16/06 18",
+	    "group": "C",
+	    "site": "Lyon",
+	    "home": "Ukraine",
+	    "away": "Nordirland"
+	},
+	{
+	    	    	    "id": 18,
+	    "date": "16/06 21",
+	    "group": "C",
+	    "site": "Saint-Denis",
+	    "home": "Deutschland",
+	    "away": "Polen"
+	},
+	{
+	    	    	    "id": 19,
+	    "date": "17/06 15",
+	    "group": "E",
+	    "site": "Toulouse",
+	    "home": "Italien",
+	    "away": "Schweden"
+	},
+	{
+	    	    	    "id": 20,
+	    "date": "17/06 18",
+	    "group": "D",
+	    "site": "Saint-Etienne",
+	    "home": "Tschechei",
+	    "away": "Kroatien"
+	},
+	{
+	    	    	    "id": 21,
+	    "date": "17/06 21",
+	    "group": "D",
+	    "site": "Nizza",
+	    "home": "Spanien",
+	    "away": "Türkei"
+	},
+	{
+	    	    	    "id": 22,
+	    "date": "18/06 15",
+	    "group": "E",
+	    "site": "Bordeaux",
+	    "home": "Belgien",
+	    "away": "Irland"
+	},
+	{
+	    	    	    "id": 23,
+	    "date": "18/06 18",
+	    "group": "F",
+	    "site": "Marseille",
+	    "home": "Island",
+	    "away": "Ungarn"
+	},
+	{
+	    	    	    "id": 24,
+	    "date": "18/06 21",
+	    "group": "F",
+	    "site": "Paris",
+	    "home": "Portugal",
+	    "away": "Österreich"
+	},
+	{
+	    	    	    "id": 25,
+	    "date": "19/06 21",
+	    "group": "A",
+	    "site": "Lyon",
+	    "home": "Rumänien",
+	    "away": "Albanien"
+	},
+	{
+	    	    	    "id": 26,
+	    "date": "19/06 21",
+	    "group": "A",
+	    "site": "Lille",
+	    "home": "Schweiz",
+	    "away": "Frankreich"
+	},
+	{
+	    	    	    "id": 27,
+	    "date": "20/06 21",
+	    "group": "B",
+	    "site": "Toulouse",
+	    "home": "Russland",
+	    "away": "Wales"
+	},
+	{
+	    	    	    "id": 28,
+	    "date": "20/06 21",
+	    "group": "B",
+	    "site": "Saint-Etienne",
+	    "home": "Slowakei",
+	    "away": "England"
+	},
+	{
+	    	    	    "id": 29,
+	    "date": "21/06 18",
+	    "group": "C",
+	    "site": "Marseille",
+	    "home": "Ukraine",
+	    "away": "Polen"
+	},
+	{
+	    	    	    "id": 30,
+	    "date": "21/06 18",
+	    "group": "C",
+	    "site": "Paris",
+	    "home": "Nordirland",
+	    "away": "Deutschland"
+	},
+	{
+	    	    	    "id": 31,
+	    "date": "21/06 21",
+	    "group": "D",
+	    "site": "Lens",
+	    "home": "Tschechei",
+	    "away": "Türkei"
+	},
+	{
+	    	    	    "id": 32,
+	    "date": "21/06 21",
+	    "group": "D",
+	    "site": "Bordeaux",
+	    "home": "Kroatien",
+	    "away": "Spanien"
+	},
+	{
+	    	    	    "id": 33,
+	    "date": "22/06 18",
+	    "group": "F",
+	    "site": "Saint-Denis",
+	    "home": "Island",
+	    "away": "Österreich"
+	},
+	{
+	    	    	    "id": 34,
+	    "date": "22/06 18",
+	    "group": "F",
+	    "site": "Lyon",
+	    "home": "Ungarn",
+	    "away": "Portugal"
+	},
+	{
+	    	    	    "id": 35,
+	    "date": "22/06 21",
+	    "group": "E",
+	    "site": "Lille",
+	    "home": "Italien",
+	    "away": "Irland"
+	},
+	{
+	    	    	    "id": 36,
+	    "date": "22/06 21",
+	    "group": "E",
+	    "site": "Nizza",
+	    "home": "Schweden",
+	    "away": "Belgien"
+	}
+    ]
+}
