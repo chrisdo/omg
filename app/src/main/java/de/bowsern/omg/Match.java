@@ -1,5 +1,8 @@
 package de.bowsern.omg;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -17,14 +20,15 @@ public class Match {
     public final String away;
     public final String site;
     public final String group;
+    public final DatabaseReference ref;
 
-
-    public Match(Calendar start, String group, String home, String away, String site){
+    public Match(Calendar start, String group, String home, String away, String site, DatabaseReference ref){
         this.home = home;
         this.away = away;
         this.site = site;
         this.start = start;
         this.group = group;
+        this.ref = ref;
     }
 
     public String toString(){
@@ -62,5 +66,12 @@ public class Match {
        return Calendar.getInstance();
 
     }
+
+
+    public void placeBet(Bet bet){
+        DatabaseReference betRef = ref.child("bets").push();
+        betRef.setValue(bet);
+    }
+
 
 }

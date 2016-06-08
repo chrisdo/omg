@@ -83,7 +83,9 @@ public final class MatchData implements ValueEventListener {
                         match.child(KEY_GROUP).getValue(String.class),
                         match.child(KEY_HOME).getValue(String.class),
                         match.child(KEY_AWAY).getValue(String.class),
-                        match.child(KEY_SITE).getValue(String.class));
+                        match.child(KEY_SITE).getValue(String.class),
+                        match.getRef()
+                );
 
                 matches.add(m);
             }
@@ -130,5 +132,8 @@ public final class MatchData implements ValueEventListener {
         }
         return result;
     }
+
+
+
 
 }

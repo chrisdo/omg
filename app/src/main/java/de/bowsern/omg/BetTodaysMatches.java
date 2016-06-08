@@ -7,7 +7,11 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,6 +25,8 @@ public class BetTodaysMatches extends AppCompatActivity {
 
     TextView home;
     TextView away;
+
+    Match match;
 
     NumberPicker scoreHome;
     NumberPicker scoreAway;
@@ -46,19 +52,17 @@ public class BetTodaysMatches extends AppCompatActivity {
         scoreAway.setMaxValue(10);
 
 
-
         if (matchesIterator.hasNext()) {
             showNextMatch();
         } else {
             // TODO no matches to bet on...
         }
-
     }
 
     private void showNextMatch(){
 
         if (matchesIterator.hasNext()) {
-            Match match = matchesIterator.next();
+            match = matchesIterator.next();
             home.setText(match.home);
             away.setText(match.away);
             scoreHome.setValue(0);
@@ -72,6 +76,11 @@ public class BetTodaysMatches extends AppCompatActivity {
     }
 
     public void placeBet(View view) {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        Bet bet = new Bet(scoreHome.getValue(), scoreAway.getValue(), user.getUid(), user.getDisplayName());
+        match.placeBet(bet);
 
         showNextMatch();
 
