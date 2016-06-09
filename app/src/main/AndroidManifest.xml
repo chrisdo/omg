@@ -13,11 +13,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
         <activity android:name=".Standings" />
-        <activity android:name=".Schedule"></activity>
-        <activity android:name=".BetTodaysMatches">
-        </activity>
+        <activity android:name=".Schedule" />
+        <activity android:name=".BetTodaysMatches" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
@@ -27,6 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SetUserNameActivity" />
+        <activity android:name=".StartupActivity"></activity>
     </application>
 
 </manifest>

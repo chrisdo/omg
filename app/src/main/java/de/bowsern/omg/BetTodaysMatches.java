@@ -1,22 +1,18 @@
 package de.bowsern.omg;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
 import java.util.Iterator;
 
 public class BetTodaysMatches extends AppCompatActivity {
@@ -30,6 +26,9 @@ public class BetTodaysMatches extends AppCompatActivity {
 
     NumberPicker scoreHome;
     NumberPicker scoreAway;
+
+    ImageView homeFlag;
+    ImageView awayFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +44,14 @@ public class BetTodaysMatches extends AppCompatActivity {
 
         scoreHome = (NumberPicker) findViewById(R.id.score_home);
         scoreAway = (NumberPicker) findViewById(R.id.score_away);
+
+        homeFlag = (ImageView) findViewById(R.id.home_flag);
+        awayFlag = (ImageView) findViewById(R.id.away_flag);
+homeFlag.getLayoutParams().width = (int) getResources().getDimension(R.dimen.flag_width);
+        homeFlag.getLayoutParams().height = (int) getResources().getDimension(R.dimen.flag_height);
+        awayFlag.getLayoutParams().width = (int) getResources().getDimension(R.dimen.flag_width);
+       awayFlag.getLayoutParams().height = (int) getResources().getDimension(R.dimen.flag_height);
+
 
         scoreHome.setMinValue(0);
         scoreHome.setMaxValue(10);
@@ -67,19 +74,42 @@ public class BetTodaysMatches extends AppCompatActivity {
             away.setText(match.away);
             scoreHome.setValue(0);
             scoreAway.setValue(0);
+            int homeFlagId = getResourceId(match.home);
+            int awayFlagId = getResourceId(match.away);
+
+            homeFlag.setImageResource(homeFlagId);
+            awayFlag.setImageResource(awayFlagId);
         }
 
         if (!matchesIterator.hasNext()) {
-            ((Button) findViewById(R.id.placeBet)).setText(R.string.fertig);
+            Button button =  ((Button) findViewById(R.id.placeBet));
+            button.setText(R.string.fertig);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //showProgress(false);
+                    Intent intent = new Intent(BetTodaysMatches.this, Standings.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+
         }
 
+    }
+
+    private int getResourceId(String team){
+        return getResources().getIdentifier(team.toLowerCase().replaceAll("ä","").replaceAll("ö","").replaceAll("ü",""),"drawable", getApplicationContext().getPackageName());
     }
 
     public void placeBet(View view) {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        Bet bet = new Bet(scoreHome.getValue(), scoreAway.getValue(), user.getUid(), user.getDisplayName());
+        String photoUrl = user.getPhotoUrl() != null ? user.getPhotoUrl().toString() : null;
+        String displayName = user.getDisplayName() != null ? user.getDisplayName() : null;
+
+        Bet bet = new Bet(scoreHome.getValue(), scoreAway.getValue(), user.getUid(), photoUrl, user.getEmail(), displayName);
         match.placeBet(bet);
 
         showNextMatch();

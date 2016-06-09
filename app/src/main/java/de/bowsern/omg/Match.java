@@ -1,11 +1,15 @@
 package de.bowsern.omg;
 
+import android.provider.ContactsContract;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -21,6 +25,10 @@ public class Match {
     public final String site;
     public final String group;
     public final DatabaseReference ref;
+
+    public Result result;
+
+    public final Collection<Bet> placedBets = new ArrayList<Bet>();
 
     public Match(Calendar start, String group, String home, String away, String site, DatabaseReference ref){
         this.home = home;
@@ -63,7 +71,7 @@ public class Match {
             e.printStackTrace();
         }
 
-       return Calendar.getInstance();
+        return Calendar.getInstance();
 
     }
 
@@ -73,5 +81,15 @@ public class Match {
         betRef.setValue(bet);
     }
 
+    public void setResult(Result result) {
+        this.result = result;
+    }
 
+    public Result getResult() {
+        return result;
+    }
+
+    public Collection<Bet> getPlacedBets() {
+        return placedBets;
+    }
 }

@@ -15,4 +15,5 @@
         completions."
     </string>
     <string name="fertig">Zur Tabelle</string>
+    <string name="username_key">username</string>
 </resources>

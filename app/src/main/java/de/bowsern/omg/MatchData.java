@@ -30,6 +30,9 @@ public final class MatchData implements ValueEventListener {
     public final static String KEY_SITE = "site";
     public final static String KEY_GROUP = "group";
 
+    public final static String KEY_RESULT = "result";
+    public final static String KEY_BETS = "bets";
+
     private final static SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy dd/MM HH");
     private final static TimeZone TZ = TimeZone.getTimeZone("Europe/Paris");
 
@@ -87,6 +90,19 @@ public final class MatchData implements ValueEventListener {
                         match.getRef()
                 );
 
+                Result result = match.child(KEY_RESULT).getValue(Result.class);
+                if (result != null) {
+                    m.setResult(result);
+                }
+
+                for (DataSnapshot betshot : match.child(KEY_BETS).getChildren()){
+                    Bet b = betshot.getValue(Bet.class);
+                    m.getPlacedBets().add(b);
+
+                    Log.d("bet", b.userEmail + " " + b.userID + " " + b.homeScore + " " + b.awayScore);
+
+                }
+
                 matches.add(m);
             }
         }
@@ -133,7 +149,9 @@ public final class MatchData implements ValueEventListener {
         return result;
     }
 
-
+    public Collection<Match> getAllMatches() {
+        return matches;
+    }
 
 
 }
