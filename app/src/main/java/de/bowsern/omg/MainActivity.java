@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         mMainContent = (LinearLayout) findViewById(R.id.main_content);
         mMainProgress = (ProgressBar) findViewById(R.id.main_progress);
 
+        final String champion_tip = (String) getIntent().getStringExtra("champion_tip");
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setTitle(getSupportActionBar().getTitle() + " - " + User.getUsername(this));
@@ -36,7 +38,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... params) {
                 try {
+
                     MatchData.INSTANCE.waitForData();
+                    if (champion_tip != null){
+                        MatchData.INSTANCE.makeChampionTip(champion_tip, MainActivity.this);
+                    }
+
                 } catch (InterruptedException e) {
                 }
                 return null;

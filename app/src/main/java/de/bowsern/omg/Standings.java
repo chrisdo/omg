@@ -119,7 +119,7 @@ public class Standings extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             TextView tv = (TextView) super.getView(position, convertView, parent);
             Score score = values.get(position);
-            tv.setText(position + " " + score.userLabel + " " + score.points);
+            tv.setText(position + 1 + " " + score.userLabel + " " + score.points);
             return tv;
 
         }

@@ -23,9 +23,9 @@ public class SetUserNameActivity extends AppCompatActivity {
 
         if (text.length() > 0) {
             User.setUsername(text.getText().toString(), this);
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, BetEuropeanChampion.class);
             startActivity(intent);
-
+            finish();
         } else {
             text.setError("Bitte gib einen Fannamen ein");
         }

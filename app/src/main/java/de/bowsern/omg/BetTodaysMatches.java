@@ -82,8 +82,8 @@ homeFlag.getLayoutParams().width = (int) getResources().getDimension(R.dimen.fla
                 scoreAway.setValue(0);
             }
 
-            int homeFlagId = getResourceId(match.home);
-            int awayFlagId = getResourceId(match.away);
+            int homeFlagId = Util.getResourceId(this,match.home);
+            int awayFlagId = Util.getResourceId(this,match.away);
 
             homeFlag.setImageResource(homeFlagId);
             awayFlag.setImageResource(awayFlagId);
@@ -101,9 +101,6 @@ homeFlag.getLayoutParams().width = (int) getResources().getDimension(R.dimen.fla
         }
     }
 
-    private int getResourceId(String team){
-        return getResources().getIdentifier(team.toLowerCase().replaceAll("ä","").replaceAll("ö","").replaceAll("ü",""),"drawable", getApplicationContext().getPackageName());
-    }
 
     public void placeBet(View view) {
 

@@ -1,5 +1,6 @@
 package de.bowsern.omg;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -16,6 +17,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.TimeZone;
+
+import de.bowsern.omg.de.bowsern.omg.adapter.ChampionTip;
 
 /**
  * Created by felix on 07-Jun-16.
@@ -148,4 +151,19 @@ public final class MatchData implements ValueEventListener {
         return new ArrayList<Match>(matches);
     }
 
+    public void makeChampionTip(String champion_tip, Context context) {
+        String username = User.getUsername(context);
+
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("championTips");
+        DatabaseReference child = myRef.push();
+
+        ChampionTip tip = new ChampionTip();
+        tip.champion = champion_tip;
+        tip.user = User.getUsername(context);
+        tip.timestamp = System.currentTimeMillis();
+
+        child.setValue(tip);
+    }
 }
