@@ -14,6 +14,11 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="fertig">Zur Tabelle</string>
+    <string name="fertig">Fertig</string>
     <string name="username_key">username</string>
+    <string name="mein_fanname_ist">Mein Fanname ist</string>
+    <string name="hallo_fussballfan_du_startest_one_more_goal_zum_ersten_mal_und_musst_deshalb_einen_fan_namen_waehlen">Hallo Fussballfan. Du startest One More Goal zum ersten Mal und musst deshalb einen Fan-Namen waehlen:</string>
+    <string name="next_bet">Weiter</string>
+    <string name="tippen">Tippen</string>
+    <string name="zur_tabelle">Zur Tabelle</string>
 </resources>

@@ -1,5 +1,6 @@
 package de.bowsern.omg;
 
+import android.content.Context;
 import android.provider.ContactsContract;
 
 import com.google.firebase.database.DatabaseReference;
@@ -55,14 +56,16 @@ public class Match {
     }
 
     public boolean canBet(){
-        return isToday() && !hasStarted();
+        return !hasStarted();
     }
 
     public Calendar now() {
 
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH");
 
         try {
+            // for testing when we only could bet todays matches
             Date date = sdf.parse("2016-06-11-14");
             Calendar c = Calendar.getInstance();
             c.setTime(date);
@@ -91,5 +94,24 @@ public class Match {
 
     public Collection<Bet> getPlacedBets() {
         return placedBets;
+    }
+
+    /**
+     * finds the current valid bet for this user, or null if the user hasn't placed a bet for this
+     * match yet
+     * @return
+     */
+    public Bet getUserBet(Context context) {
+        Bet result = null;
+        for (Bet b : getPlacedBets()) {
+
+            /// user may bet more than once, we just use the last bet for this match with the
+            // matching user
+            if (User.getUsername(context).equals(b.username)){
+                    result = b;
+            }
+
+        }
+        return result;
     }
 }

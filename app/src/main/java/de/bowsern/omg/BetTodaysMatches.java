@@ -72,8 +72,16 @@ homeFlag.getLayoutParams().width = (int) getResources().getDimension(R.dimen.fla
             match = matchesIterator.next();
             home.setText(match.home);
             away.setText(match.away);
-            scoreHome.setValue(0);
-            scoreAway.setValue(0);
+
+            Bet bet = match.getUserBet(this);
+            if (bet != null) {
+                scoreAway.setValue(bet.awayScore);
+                scoreHome.setValue(bet.homeScore);
+            } else {
+                scoreHome.setValue(0);
+                scoreAway.setValue(0);
+            }
+
             int homeFlagId = getResourceId(match.home);
             int awayFlagId = getResourceId(match.away);
 
@@ -87,15 +95,10 @@ homeFlag.getLayoutParams().width = (int) getResources().getDimension(R.dimen.fla
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //showProgress(false);
-                    Intent intent = new Intent(BetTodaysMatches.this, Standings.class);
-                    startActivity(intent);
                     finish();
                 }
             });
-
         }
-
     }
 
     private int getResourceId(String team){
@@ -104,12 +107,7 @@ homeFlag.getLayoutParams().width = (int) getResources().getDimension(R.dimen.fla
 
     public void placeBet(View view) {
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        String photoUrl = user.getPhotoUrl() != null ? user.getPhotoUrl().toString() : null;
-        String displayName = user.getDisplayName() != null ? user.getDisplayName() : null;
-
-        Bet bet = new Bet(scoreHome.getValue(), scoreAway.getValue(), user.getUid(), photoUrl, user.getEmail(), displayName);
+        Bet bet = new Bet(scoreHome.getValue(), scoreAway.getValue(), User.getUsername(this));
         match.placeBet(bet);
 
         showNextMatch();

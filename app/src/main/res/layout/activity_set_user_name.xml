@@ -15,25 +15,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hallo Fussballfan. Du startest One More Goal zum ersten Mal und musst deshalb einen Fan-Namen waehlen:"
+        android:text="@string/hallo_fussballfan_du_startest_one_more_goal_zum_ersten_mal_und_musst_deshalb_einen_fan_namen_waehlen"
         android:id="@+id/textView"
-        android:layout_weight="0.17" />
+        android:layout_weight=".1" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Mein Fanname ist"
         android:ems="10"
-        android:id="@+id/editText"
-        android:layout_weight="0.5"
-        android:editable="true" />
+        android:id="@+id/fanname"
+        android:layout_weight="0"
+        android:hint="Manuel Neuer" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".8" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Los Gehts"
         android:id="@+id/saveNickNameButton"
-        android:layout_weight="0.17"
-        android:onClick="goToMenu" />
+        android:layout_weight=".1"
+        android:onClick="losGehts" />
 </LinearLayout>

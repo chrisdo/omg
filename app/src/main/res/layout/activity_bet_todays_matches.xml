@@ -58,7 +58,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="@string/next_bet"
         android:id="@+id/placeBet"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

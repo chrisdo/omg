@@ -35,15 +35,15 @@ public class Standings extends AppCompatActivity {
                 Map<String, Bet> uid2LastBet = new HashMap<String, Bet>();
 
                 for (Bet b : m.getPlacedBets()) {
-                    uid2LastBet.put(b.userID, b);
+                    uid2LastBet.put(b.username, b);
                 }
 
                 for (Bet bet : uid2LastBet.values()) {
 
-                    Score score = uid2Score.get(bet.userID);
+                    Score score = uid2Score.get(bet.username);
                     if (score == null) {
-                        score = new Score(bet.userEmail);
-                        uid2Score.put(bet.userID, score);
+                        score = new Score(bet.username);
+                        uid2Score.put(bet.username, score);
                     }
 
                     score.points += getPoints(bet, m.getResult());
@@ -61,18 +61,6 @@ public class Standings extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.standigsList);
         StandingsAdapter adapter = new StandingsAdapter(this, android.R.layout.simple_list_item_1, scores);
         listView.setAdapter(adapter);
-
-        Button exitButton = (Button) findViewById(R.id.exitButton);
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Standings.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("Exit me", true);
-                startActivity(intent);
-                finish();
-            }
-        });
 
 
     }

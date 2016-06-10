@@ -12,12 +12,7 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="375dp"
+        android:layout_height="match_parent"
         android:id="@+id/standigsList" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="73dp"
-        android:text="Exit"
-        android:id="@+id/exitButton" />
 </LinearLayout>

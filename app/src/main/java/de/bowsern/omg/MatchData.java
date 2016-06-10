@@ -45,8 +45,8 @@ public final class MatchData implements ValueEventListener {
         DatabaseReference myRef = database.getReference("groupStage");
 
 
-        // Read from the database ONCE
-        myRef.addListenerForSingleValueEvent(this);
+        // Read from the database
+        myRef.addValueEventListener(this);
 
     }
 
@@ -98,18 +98,13 @@ public final class MatchData implements ValueEventListener {
                 for (DataSnapshot betshot : match.child(KEY_BETS).getChildren()){
                     Bet b = betshot.getValue(Bet.class);
                     m.getPlacedBets().add(b);
-
-                    Log.d("bet", b.userEmail + " " + b.userID + " " + b.homeScore + " " + b.awayScore);
-
                 }
 
                 matches.add(m);
             }
         }
 
-        for (Match m : matches) {
-            Log.w("match", m.toString());
-        }
+        Log.d("data", "onDataChange: something has updated!!");
 
         this.matches = matches;
     }
@@ -150,8 +145,7 @@ public final class MatchData implements ValueEventListener {
     }
 
     public Collection<Match> getAllMatches() {
-        return matches;
+        return new ArrayList<Match>(matches);
     }
-
 
 }

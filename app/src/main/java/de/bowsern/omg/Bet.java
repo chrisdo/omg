@@ -7,24 +7,20 @@ import android.net.Uri;
  */
 public class Bet {
 
-    public String userID;
+    public String username;
     public int homeScore;
     public int awayScore;
-    public String userDisplayName;
-    public String userEmail;
-    public String fotoUrl;
+    public long timestamp;
 
     public Bet() {
 
     }
 
-    public Bet(int homeScore, int awayScore, String userID, String fotoUrl, String userEmail, String userDisplayName){
-        this.userID = userID;
+    public Bet(int homeScore, int awayScore, String username){
         this.homeScore = homeScore;
         this.awayScore = awayScore;
-        this.userDisplayName = userDisplayName;
-        this.userEmail = userEmail;
-        this.fotoUrl = fotoUrl;
+        this.username = username;
+        this.timestamp = System.currentTimeMillis();
     }
 
 
