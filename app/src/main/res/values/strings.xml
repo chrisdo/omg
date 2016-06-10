@@ -22,4 +22,11 @@
     <string name="tippen">Tippen</string>
     <string name="zur_tabelle">Zur Tabelle</string>
     <string name="title_activity_bet_european_champion">Tipp den Europameister!</string>
+    <string name="group">Group</string>
+    <string name="_10_06_21_00_paris">10.06 / 21:00 / Paris</string>
+    <string name="home_flag">home_flag</string>
+    <string name="away_flag">away_flag</string>
+    <string name="home">Home</string>
+    <string name="vs_char">:</string>
+    <string name="away">Away</string>
 </resources>

@@ -12,15 +12,21 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Iterator;
 
 public class BetTodaysMatches extends AppCompatActivity {
 
+    private final SimpleDateFormat df = new SimpleDateFormat("dd.MM / HH:00");
+
     Iterator<Match> matchesIterator;
 
     TextView home;
     TextView away;
+
+    TextView groupText;
+    TextView dateText;
 
     Match match;
 
@@ -58,6 +64,8 @@ homeFlag.getLayoutParams().width = (int) getResources().getDimension(R.dimen.fla
         scoreAway.setMinValue(0);
         scoreAway.setMaxValue(10);
 
+        groupText = (TextView) findViewById(R.id.match_group);
+        dateText = (TextView) findViewById(R.id.match_date);
 
         if (matchesIterator.hasNext()) {
             showNextMatch();
@@ -87,6 +95,10 @@ homeFlag.getLayoutParams().width = (int) getResources().getDimension(R.dimen.fla
 
             homeFlag.setImageResource(homeFlagId);
             awayFlag.setImageResource(awayFlagId);
+
+            groupText.setText("Gruppe " + match.group);
+            dateText.setText(df.format(match.start.getTime()) + " / " + match.site);
+
         }
 
         if (!matchesIterator.hasNext()) {

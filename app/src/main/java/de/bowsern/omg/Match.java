@@ -18,7 +18,7 @@ import java.util.Date;
  */
 public class Match {
 
-    private final Calendar start;
+    public final Calendar start;
     private int scoreHome;
     private int scoreAway;
     public final String home;
