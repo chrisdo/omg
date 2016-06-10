@@ -22,7 +22,7 @@ public class StartupActivity extends AppCompatActivity {
         Intent intent = null;
 
         // TODO remove when deployed!
-        getSharedPreferences(PREFS_FILE, 0).edit().clear().commit();
+        //getSharedPreferences(PREFS_FILE, 0).edit().clear().commit();
 
         if (User.getUsername(this) == null) {
             intent = new Intent(this, SetUserNameActivity.class);
