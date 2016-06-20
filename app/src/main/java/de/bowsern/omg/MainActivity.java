@@ -79,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Standings.class);
         startActivity(intent);
     }
+    public void showPlacedBets(View view) {
+        Intent intent = new Intent(this, PlacedBetsActivity.class);
+        startActivity(intent);
+    }
+
 
     public void showMyBets(View view) {
         Intent intent = new Intent(this, BetTodaysMatches.class);

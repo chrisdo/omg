@@ -13,21 +13,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-
         <activity android:name=".Standings" />
         <activity android:name=".BetTodaysMatches" />
-        <activity android:name=".SetUserNameActivity" android:noHistory="true" />
-        <activity android:name=".StartupActivity" android:noHistory="true" >
+        <activity
+            android:name=".SetUserNameActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".StartupActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".BetEuropeanChampion"
-            android:label="@string/title_activity_bet_european_champion">
+            android:label="@string/title_activity_bet_european_champion" />
+        <activity android:name=".PlacedBetsActivity" />
+        <activity android:name=".PlacedBetsDetailActivity"
+            android:parentActivityName="de.bowsern.omg.PlacedBetsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.bowsern.omg.PlacedBetsActivity" />
         </activity>
     </application>
 
